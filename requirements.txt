@@ -1,0 +1,9 @@
+numpy
+pandas
+matplotlib
+openai
+langchain
+faiss-cpu
+chromadb
+streamlit
+wandb
