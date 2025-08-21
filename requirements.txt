@@ -4,6 +4,9 @@ matplotlib
 openai
 langchain
 faiss-cpu
-chromadb
+pinecone
 streamlit
 wandb
+python-dotenv
+tiktoken
+sentence-transformers
