@@ -10,3 +10,4 @@ wandb
 python-dotenv
 tiktoken
 sentence-transformers
+tavily-python
