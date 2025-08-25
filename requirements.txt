@@ -11,3 +11,7 @@ python-dotenv
 tiktoken
 sentence-transformers
 tavily-python
+ragas
+deepeval
+datasets
+neo4j
