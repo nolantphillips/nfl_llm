@@ -23,6 +23,9 @@ with tab1:
         "The assistant combines knowledge graph and vector retrieval for accurate answers."
     )
 
+    if "history" not in st.session_state:
+        st.session_state.history = []
+
     # ------------------------------
     # User Inputs
     # ------------------------------
@@ -42,6 +45,10 @@ with tab1:
         with st.spinner("Generating answer..."):
             try:
                 result = run_pipeline(user_input)
+
+                st.session_state.history.append(
+                    {"question": user_input, "answer": result["llm_answer"]}
+                )
 
                 if "query_log" not in st.session_state:
                     st.session_state.query_log = []
@@ -76,6 +83,12 @@ with tab1:
 
             except Exception as e:
                 st.error(f"Error generating answer: {e}")
+    if st.session_state.history:
+        st.markdown("---")
+        st.subheader("Conversation History")
+        for i, item in enumerate(reversed(st.session_state.history), 1):
+            st.markdown(f"**Q{i}:** {item["question"]}")
+            st.markdown(f"**A{i}:** {item["answer"]}")
 
 with tab2:
     st.header("Pipeline Monitoring")
